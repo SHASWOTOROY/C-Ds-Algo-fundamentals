@@ -37,7 +37,7 @@ public:
 
         if(front==-1||front>back)
         {
-            cout<<"no elemnt to insert"<<endl;
+            cout<<"no elemnt to pop"<<endl;
             return;
         }
         front++;
@@ -47,7 +47,7 @@ public:
 
         if(front==-1||front>back)
         {
-            cout<<"no elemnt to insert"<<endl;
+            cout<<"no elemnt to peek"<<endl;
             return-1;
         }
         return arr[front];
@@ -57,7 +57,7 @@ public:
 
         if(front==-1||front>back)
         {
-            cout<<"no elemnt to insert"<<endl;
+            cout<<"empty"<<endl;
             return true;
         }
         return false;
