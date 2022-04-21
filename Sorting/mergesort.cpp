@@ -1,50 +1,39 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int arr[100000];
-int temp[100000];
-void print(int n)
+void mergesort(int *ar,int l,int h)
 {
-
-    for(int i=0; i<n; i++)
-    {
-        cout<<arr[i]<<" ";
-    }
-
-}
-
-void mergesort(int l,int h)
-{
+    int temp[h-l+1];
     if(l==h)
         return;
 
 
     int mid=(l+h)/2;
-    mergesort(l,mid);
-    mergesort(mid+1,h);
+    mergesort(ar,l,mid);
+    mergesort(ar,mid+1,h);
 
     for(int i=l,j=mid+1,k=l; k<=h; k++)
     {
         if(i==mid+1)
         {
-            temp[k]=arr[j++];
+            temp[k]=ar[j++];
         }
         else if(j==h+1)
         {
-            temp[k]=arr[i++];
+            temp[k]=ar[i++];
         }
-        else if(arr[i]<arr[j])
+        else if(ar[i]<ar[j])
         {
-            temp[k]=arr[i++];
+            temp[k]=ar[i++];
         }
         else
         {
-            temp[k]=arr[j++];
+            temp[k]=ar[j++];
         }
     }
     for(int k=l; k<=h; k++)
     {
-        arr[k]=temp[k];
+        ar[k]=temp[k];
     }
 
 }
@@ -52,12 +41,16 @@ int main()
 {
     int n;
     cin>>n;
+    int arr[n];
     for(int i=0; i<n; i++)
     {
         cin>>arr[i];
     }
-    mergesort(0,n-1);
-    print(n);
+    mergesort(arr,0,n-1);
+    for(int i=0; i<n; i++)
+    {
+        cout<<arr[i]<<" ";
+    }
 }
 
 
