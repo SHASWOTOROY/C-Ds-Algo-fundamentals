@@ -1,76 +1,64 @@
-
 #include <bits/stdc++.h>
 using namespace std;
-void merge(int *ar, int l,int h,int mid)
+
+int arr[100000];
+int temp[100000];
+void print(int n)
 {
 
-    int i,j,k;
-    i=l;
-    j=mid+1;
-    k=0;
-    int temp[h-l+1];
-    while(i<=mid&& j<=h)
-    {
-
-        if(ar[i]<ar[j])
-        {
-            temp[k]=ar[i];
-            k++;
-            i++;
-        }
-        else
-        {
-            temp[k]=ar[j];
-            k++;
-            j++;
-        }
-
-    }
-    while(i<=mid)
-    {
-
-        temp[k]=ar[i];
-        k++;
-        i++;
-    }
-    while(j<=h)
-    {
-        temp[k]=ar[j];
-        k++;
-        j++;
-    }
-    for(i=l; i<=h; i++)
-    {
-        ar[i]=temp[i-l];
-    }
-}
-void MergeSort(int *ar, int l, int h)
-{
-    if(l<h)
-    {
-
-        int mid=(l+h)/2;
-        MergeSort(ar,l,mid);
-        MergeSort(ar, mid+1,h);
-        merge(ar,l,h,mid);
-    }
-
-
-}
-int main()
-{
-
-    int n;
-    cin>>n;
-    int arr[n];
-    for(int i=0; i<n; i++)
-    {
-        cin>>arr[i];
-
-    }
-    MergeSort(arr, 0,n-1);
     for(int i=0; i<n; i++)
     {
         cout<<arr[i]<<" ";
     }
+
 }
+
+void mergesort(int l,int h)
+{
+    if(l==h)
+        return;
+
+
+    int mid=(l+h)/2;
+    mergesort(l,mid);
+    mergesort(mid+1,h);
+
+    for(int i=l,j=mid+1,k=l; k<=h; k++)
+    {
+        if(i==mid+1)
+        {
+            temp[k]=arr[j++];
+        }
+        else if(j==h+1)
+        {
+            temp[k]=arr[i++];
+        }
+        else if(arr[i]<arr[j])
+        {
+            temp[k]=arr[i++];
+        }
+        else
+        {
+            temp[k]=arr[j++];
+        }
+    }
+    for(int k=l; k<=h; k++)
+    {
+        arr[k]=temp[k];
+    }
+
+}
+int main()
+{
+    int n;
+    cin>>n;
+    for(int i=0; i<n; i++)
+    {
+        cin>>arr[i];
+    }
+    mergesort(0,n-1);
+    print(n);
+}
+
+
+
