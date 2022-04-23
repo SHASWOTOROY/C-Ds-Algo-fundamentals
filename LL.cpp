@@ -99,11 +99,11 @@ node *takeinput()
 int main()
 {
 
-     node n1(1);
-     node n2(2);
-     n1.next=&n2;
-     node *head= &n1;
-     print(head);
+     //node n1(1);
+     //node n2(2);
+     //n1.next=&n2;
+     //node *head= &n1;
+     //print(head);
     node *head= takeinput();
     print (head);
 
