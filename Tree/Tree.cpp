@@ -99,8 +99,8 @@ int main()
     root->child.push_back(n1);
     root->child.push_back(n2);*/
     tree<int>*root=levelwise();
-    cout<<"total nodes"<<countnode(root)<<endl;
-    cout<<"leaf nodes"<<countleaf(root)<<endl;
+    cout<<"total nodes "<<countnode(root)<<endl;
+    cout<<"leaf nodes "<<countleaf(root)<<endl;
     printtree(root);
 
 }
