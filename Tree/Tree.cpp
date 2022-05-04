@@ -1,49 +1,4 @@
 // tree
-/*#include <bits/stdc++.h>
-using namespace std;
-/*int gcd (int n)
-{
-    int fact=1;
-    for(int i=1; i<=n; i++)
-    {
-        fact=fact*i;
-    }
-    return fact;
-}
-
-int main()
-{
-
-    int a,b;
-    cin>>a>>b;
-    int gcd=1;
-    int lim=min(a,b);
-    for(int i=1; i<=lim; i++)
-    {
-        if(a%i==0&&b%i==0)
-        {
-            gcd=i;
-        }
-    }
-    cout<<gcd<<endl;
-
-}
-#include <bits/stdc++.h>
-using namespace std;
-int main()
-{
-    int n;
-    cin>>n;
-    for(int i=1; i<=n; i++)
-    {
-        if(n%i==0)
-        {
-            cout<<i<<endl;
-        }
-    }
-
-
-}*/
 // no children called leaf node
 #include <bits/stdc++.h>
 using namespace std;
