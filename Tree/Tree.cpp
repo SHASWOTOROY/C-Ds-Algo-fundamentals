@@ -63,11 +63,28 @@ tree<int>*levelwise()
 }
 int countnode(tree<int>*root)
 {
-
+    if(root==NULL)
+    {
+        return 0;
+    }
     int ans=1;
     for(int i=0; i<root->child.size(); i++)
     {
         ans=ans+countnode(root->child[i]);
+    }
+    return ans;
+}
+int countleaf(tree<int>*root)
+{
+
+    if(root->child.size()==0)
+    {
+        return 1;
+    }
+    int ans=0;
+    for(int i=0; i<root->child.size(); i++)
+    {
+        ans=ans+countleaf(root->child[i]);
     }
     return ans;
 }
@@ -82,7 +99,8 @@ int main()
     root->child.push_back(n1);
     root->child.push_back(n2);*/
     tree<int>*root=levelwise();
-    cout<<countnode(root)<<endl;
+    cout<<"total nodes"<<countnode(root)<<endl;
+    cout<<"leaf nodes"<<countleaf(root)<<endl;
     printtree(root);
 
 }
