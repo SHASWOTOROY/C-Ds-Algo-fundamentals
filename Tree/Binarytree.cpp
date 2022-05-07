@@ -79,7 +79,8 @@ int countleaf(binarytree<int>*root)
     {
         return 0;
     }
-    if(root->left==NULL&&root->right==NULL){
+    if(root->left==NULL&&root->right==NULL)
+    {
         return 1;
     }
     return countleaf(root->left)+countleaf(root->right);
@@ -87,6 +88,19 @@ int countleaf(binarytree<int>*root)
 
 }
 
+bool searchnode(binarytree<int>*root,int key)
+{
+
+    if(root==NULL)
+    {
+        return false;
+    }
+    if(root->data==key)
+    {
+        return true;
+    }
+    return (searchnode(root->left,key)||searchnode(root->right,key));
+}
 
 
 //  1 2 4 -1 -1 5 -1 -1 3 6 8 -1 -1 9 -1 -1 7 -1 -1
@@ -101,9 +115,19 @@ int main()
     cout<<"num of nodes "<<countnode(root)<<endl;
     cout<<"num of leaf "<<countleaf(root)<<endl;
     print(root);
+    cout<<"enter the data u want to search"<<endl;
+    int key;
+    cin>>key;
+    if(searchnode(root,key))
+    {
+        cout<<"found"<<endl;
+    }
+    else
+    {
+        cout<<"NOT"<<endl;
+    }
     delete root;
 
 
 
 }
-
