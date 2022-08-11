@@ -1,11 +1,10 @@
-
 #include <bits/stdc++.h>
 using namespace std;
-
+ 
 void knapSack(int W, int n, int val[], int wt[]) {
   int i, w;
   int V[n+1][W+1]{};
-
+ 
   for(i = 1; i <= n; i++) {
     for(w = 1; w <= W; w++) {
       if(wt[i] <= w) {
@@ -14,23 +13,15 @@ void knapSack(int W, int n, int val[], int wt[]) {
         V[i][w] = V[i-1][w];
       }
     }
-    int main()
-{
-    string s1,s2;
-    cin>>s1>>s2;
-    int m=s1.size();
-    int n=s2.size();
-    cout<<lcs(s1,s2,n,m)<<endl;
-
   }
   cout<<"Max Value: "<<V[n][W]<<endl;
 }
-
+ 
 int main(void) {
-
+ 
     int l;
     cin>>l;
-
+ 
     int val[l];
     cout<<"Enter values: ";
     for(int i=0;i<l;i++) {
@@ -44,16 +35,15 @@ int main(void) {
   cout<<"Enter size: ";
   int n;
   cin>>n;
-
+ 
   int W;
   cout<<"Enter knapsack size: ";
   cin>>W;
-
+ 
   knapSack(W, n, val, wt);
-
+ 
   return 0;
 }
-
 
 // lps exists in range [1,n];
 #include<bits/stdc++.h>
